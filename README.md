@@ -20,18 +20,21 @@ This project analyzes Yelp restaurant data to understand the relationship betwee
 | 🗃️ Pandas | Data manipulation and cleaning |
 | 🛢️ SQL | Querying Yelp dataset |
 | 📊 Matplotlib & Seaborn | Data visualization |
-| 🧠 Sentiment Analysis | Understanding user sentiment in reviews |
 | 🌍 Geolocation Analysis | Mapping restaurant locations |
 | 🗺️ Folium | Interactive map visualizations |
+| 🏷️ SQL for EDA & Analysis | Used SQL queries for exploratory data analysis and business insights |
+| 🧼 SQL for Data Cleaning | Performed data cleaning using SQL queries |
+| ⏳ Time Series Analysis | Conducted time-based trend analysis using SQL & Python |
 
 ## 🔍 Project Breakdown
 
 ### 1️⃣ Data Collection 📥
 - The dataset is sourced from Yelp, containing information on restaurants, reviews, tips, and check-ins.
 - SQL queries are used to extract relevant data from the Yelp database.
-- The Yelp Open Dataset is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience.
+- The Yelp Open Dataset is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience. It's total size in approximately **8 GB**.
 
-()
+![Screenshot 2025-02-20 152636](https://github.com/user-attachments/assets/f77be5a4-bc88-4e16-831e-4d74949583c6)
+
 
 ### 2️⃣ Data Cleaning & Preprocessing 🧼
 - Missing values and outliers are handled using Pandas.
