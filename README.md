@@ -292,10 +292,10 @@ ON review.month_year = tip.month_year;
 ```
 
 - Extracts month & year (strftime('%m-%Y', date)) for reviews & tips.
-- ounts reviews (COUNT(*) AS review_count) per month for high-rated businesses.
-- ounts tips (COUNT(*) AS tip_count) per month for the same businesses.
-- oins review & tip data on the month-year field.
--  similar query runs for low-rated (<3.5 stars) restaurants to compare trends.
+- Counts reviews (COUNT(*) AS review_count) per month for high-rated businesses.
+- Counts tips (COUNT(*) AS tip_count) per month for the same businesses.
+- Coins review & tip data on the month-year field.
+- Similar query runs for low-rated (<3.5 stars) restaurants to compare trends.
 ### 📊 Insights:
 - Identifies seasonal patterns in user engagement.
 - Compares high-rated vs. low-rated restaurants to see if success affects engagement trends.
