@@ -1,7 +1,7 @@
 # 🍽️ Yelp Restaurant Analysis 📊
 
 ## 🚀 Project Overview
-This project analyzes Yelp restaurant data to understand the relationship between user engagement (reviews, tips, check-ins) and business success (ratings, review count). The goal is to provide insights that can help restaurant owners and stakeholders make data-driven decisions to enhance customer experience and boost ratings.
+This project analyzes Yelp restaurant data to understand the relationship between user engagement (reviews, tips, check-ins) and business success (ratings, review count). The goal is to provide insights that can help restaurant owners and stakeholders make data-driven decisions to enhance customer experience and boost ratings. For stakeholder I have also made a ppt to engage in story telling to convey what analysis has concluded from data.
 
 ### 🎯 Research Objectives
 1. **📈 Quantify the correlation between user engagement and review count/average rating**: Determine if higher engagement leads to increased reviews and better ratings.
@@ -33,7 +33,8 @@ This project analyzes Yelp restaurant data to understand the relationship betwee
 - SQL queries are used to extract relevant data from the Yelp database.
 - The Yelp Open Dataset is a subset of Yelp data that is intended for educational use. It provides real-world data related to businesses including reviews, photos, check-ins, and attributes like hours, parking availability, and ambience. It's total size in approximately **8 GB**.
 
-![Screenshot 2025-02-20 152636](https://github.com/user-attachments/assets/f77be5a4-bc88-4e16-831e-4d74949583c6)
+![Screenshot 2025-02-20 152702](https://github.com/user-attachments/assets/4522fb94-e448-4373-88d8-9c8491e6bb41)
+![Screenshot 2025-02-20 152636](https://github.com/user-attachments/assets/15d70439-1db2-4772-9e92-f5619b7d136e)
 
 
 ### 2️⃣ Data Cleaning & Preprocessing 🧼
@@ -73,7 +74,7 @@ WHERE categories LIKE '%Restaurant%';
 ```
 -  Filters only businesses that have "Restaurant" in their category.
 
-()
+![image](https://github.com/user-attachments/assets/c28ae60a-129d-44f8-8078-53ce4c9846fb)
 
 #### 🖥️ Highest Rating and Review Count
 Retrieves the **top 10 restaurants** with the highest review count and their average rating.
@@ -90,14 +91,16 @@ GROUP BY name
 ORDER BY review_count DESC  
 LIMIT 10;
 ```
-() ()
+| ![image](https://github.com/user-attachments/assets/f8272280-cf8d-4ca7-a05c-afd01ff5e318) | ![image](https://github.com/user-attachments/assets/1559da93-6e6c-40d0-a28e-f186724d9aad)
+
 
 #### 🖥️ Do restaurants with higher engagement tend to have higher ratings ?
 
 
 Calculates the **total number of check-ins** for each business by counting date entries in the `checkin` table.
 Since Checkins are in string
-()
+![image](https://github.com/user-attachments/assets/88374a05-8a19-403c-a938-2d5610222329)
+
 ```sql
 SELECT business_id,
        SUM(LENGTH(date) - LENGTH(REPLACE(date, ',', '')) + 1) AS checkin_count
@@ -141,7 +144,8 @@ GROUP BY total.avg_rating;
 - LEFT JOIN tip → Aggregates tip counts per business.
 - GROUP BY total.avg_rating → Groups by average rating.
 
-()
+![image](https://github.com/user-attachments/assets/59b01ed9-8fbc-4001-b965-d3be8cfb417a)
+
 
 #### 🖥️ Is there a correlation between the number of reviews, tips, and check-ins for a business?
 Retrieves **average rating, review count, and sentiment metrics (useful, funny, cool)** for businesses.
@@ -172,7 +176,7 @@ ORDER BY review_count;
 - GROUP BY business_id → Groups results by business.
 - ORDER BY review_count → Sorts businesses by review count.
 
-()
+![image](https://github.com/user-attachments/assets/15ae41d6-7abf-4d6f-ac94-ed9bcef1a652)
 
 
 
@@ -263,9 +267,7 @@ heat_data = city_df[['latitude', 'longitude', 'success_score']].values.tolist()
 HeatMap(heat_data, radius=15, blur=10).add_to(m)
 Adds a heatmap layer to visualize density of successful restaurants.
 ```
-
-
-()
+![image](https://github.com/user-attachments/assets/f34f958d-d407-43ad-bf41-0694aa79b2c3)
 
 #### 🖥️ Are there any patterns in user engagement over time for successful businesses compared to less successful ones?
 
@@ -297,10 +299,12 @@ ON review.month_year = tip.month_year;
 ### 📊 Insights:
 - Identifies seasonal patterns in user engagement.
 - Compares high-rated vs. low-rated restaurants to see if success affects engagement trends.
-()
+
+![image](https://github.com/user-attachments/assets/74b5f162-923e-436f-b233-1c0e16ff712b)
+
 
 #### 🖥️ Trend and Seasonality Analysis
-()
+| ![image](https://github.com/user-attachments/assets/3ae7625e-455e-4277-9ea5-a48bfc3548f6) | ![image](https://github.com/user-attachments/assets/00447c92-5712-4ac2-a1cd-e83f75502b2f) |
 
 #### 🖥️ How does the sentiment of reviews and tips (useful, funny,cool) correlate with the success metrics of restaurants?
 
@@ -356,8 +360,10 @@ sentiment_df = remove_outlier(sentiment_df,'cool_count')
 -Examines whether higher engagement (useful, funny, cool votes) correlates with higher ratings.
 - Helps in understanding how customer sentiment impacts restaurant success.
 
+![image](https://github.com/user-attachments/assets/30c5c060-6277-456f-8792-3fd48a1fbc6b)
+
+
 #### 🖥️ Is there any difference in engagement of elite users and non elite users ?
-### 📌 SQL Query: Elite vs. Non-Elite User Engagement  
 This query categorizes users as **Elite** or **Not Elite** and analyzes their engagement by **total reviews**.
 
 ```sql
@@ -386,11 +392,10 @@ GROUP BY elite;
 - Shows whether Elite users contribute more reviews than Non-Elite users.
 - Helps in understanding the impact of Yelp’s Elite program on user engagement.
 
-()
+![image](https://github.com/user-attachments/assets/d68fbec4-d920-4bfd-b916-27a080f3eacb)
 
 #### 🖥️ Busiest Hour
-
-()
+![image](https://github.com/user-attachments/assets/90589ade-df57-4d41-9f5f-b93b477893c6)
 
 #### 🖥️ Recommendation
 
